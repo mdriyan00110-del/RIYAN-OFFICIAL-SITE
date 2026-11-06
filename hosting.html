@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudVortex - High Performance Web Hosting</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #58a6ff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        nav a {
+            color: #8b949e;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #58a6ff;
+        }
+        .btn-primary {
+            background: #238636;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: #2ea043;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, #1f2937 0%, #0d1117 70%);
+        }
+        .hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            color: #58a6ff;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 8%;
+            text-align: center;
+        }
+        .pricing-section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .pricing-section p {
+            color: #8b949e;
+            margin-bottom: 50px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .pricing-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #58a6ff;
+        }
+        .pricing-card.popular {
+            border-color: #238636;
+        }
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #238636;
+            color: white;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+        .pricing-card h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 20px 0;
+        }
+        .price span {
+            font-size: 16px;
+            color: #8b949e;
+            font-weight: 400;
+        }
+        .features-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        .features-list li {
+            margin-bottom: 12px;
+            color: #c9d1d9;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features-list li i {
+            color: #238636;
+        }
+        .card-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #21262d;
+            color: #58a6ff;
+            border: 1px solid #30363d;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .card-btn:hover {
+            background: #58a6ff;
+            color: white;
+            border-color: #58a6ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #161b22;
+            border-top: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-server"></i> CloudVortex</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#pricing">Hosting</a>
+            <a href="#">Domains</a>
+            <a href="#">Support</a>
+        </nav>
+        <a href="#pricing" class="btn-primary">Get Started</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Lightning Fast <span>Web Hosting</span> For Your Website</h1>
+        <p>Experience 99.9% uptime, NVMe SSD storage, and 24/7 expert support to scale your web projects effortlessly.</p>
+        <a href="#pricing" class="btn-primary" style="padding: 14px 30px; font-size: 16px;">View Hosting Plans</a>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <h2>Choose Your Hosting Plan</h2>
+        <p>Affordable, reliable, and optimized for maximum speed.</p>
+        
+        <div class="pricing-grid">
+            <!-- Plan 1 -->
+            <div class="pricing-card">
+                <h3>Starter Web</h3>
+                <p style="color: #8b949e; font-size: 13px;">Perfect for personal portfolios & small blogs.</p>
+                <div class="price">$2.99 <span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> 1 Website Hosting</li>
+                    <li><i class="fa-solid fa-check"></i> 10 GB NVMe Storage</li>
+                    <li><i class="fa-solid fa-check"></i> Free SSL Certificate</li>
+                    <li><i class="fa-solid fa-check"></i> Weekly Backups</li>
+                </ul>
+                <a href="#" class="card-btn">Choose Plan</a>
+            </div>
+
+            <!-- Plan 2 (Popular) -->
+            <div class="pricing-card popular">
+                <div class="badge">POPULAR</div>
+                <h3>Business Pro</h3>
+                <p style="color: #8b949e; font-size: 13px;">Ideal for growing businesses & e-commerce.</p>
+                <div class="price">$6.99 <span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> Unlimited Websites</li>
+                    <li><i class="fa-solid fa-check"></i> 50 GB NVMe Storage</li>
+                    <li><i class="fa-solid fa-check"></i> Free SSL & Domain</li>
+                    <li><i class="fa-solid fa-check"></i> Daily Automated Backups</li>
+                </ul>
+                <a href="#" class="card-btn" style="background: #238636; color: white;">Choose Plan</a>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="pricing-card">
+                <h3>Cloud VPS</h3>
+                <p style="color: #8b949e; font-size: 13px;">Maximum power for high-traffic apps.</p>
+                <div class="price">$14.99 <span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> Dedicated Resources</li>
+                    <li><i class="fa-solid fa-check"></i> 120 GB NVMe Storage</li>
+                    <li><i class="fa-solid fa-check"></i> Full Root Access</li>
+                    <li><i class="fa-solid fa-check"></i> 24/7 Priority Support</li>
+                </ul>
+                <a href="#" class="card-btn">Choose Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CloudVortex Hosting. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
