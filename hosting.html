@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A9X BD OFFICIAL 〖VIP〗 - Free HTML & Script Hosting</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #07090e;
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Neon Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .brand-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .vip-badge {
+            background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: #ffffff;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #00f2fe;
+        }
+        .btn-free {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #000;
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-free:hover {
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 90px 20px 60px;
+            background: radial-gradient(circle at top, rgba(0, 242, 254, 0.15) 0%, transparent 60%);
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 38px;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .hero h1 span {
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+        .hero p {
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            font-size: 16px;
+        }
+
+        /* Free Card Container */
+        .pricing-section {
+            padding: 40px 8% 80px;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        .hosting-grid {
+            display grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 30px 25px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: #00f2fe;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+        }
+        .card.featured {
+            border-color: #00f2fe;
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .free-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #22c55e;
+            color: #000;
+            font-weight: 800;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+        .card h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 34px;
+            font-weight: 800;
+            color: #00f2fe;
+            margin: 15px 0;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .price span {
+            font-size: 14px;
+            color: #94a3b8;
+            font-family: 'Poppins', sans-serif;
+        }
+        .feature-list {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+        .feature-list li {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-list li i {
+            color: #00f2fe;
+        }
+        .card-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: transparent;
+            color: #00f2fe;
+            border: 1px solid #00f2fe;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .card-btn:hover {
+            background: #00f2fe;
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0b0f17;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="https://t.me/mdrayan69x" target="_blank" class="brand-logo">
+            <i class="fa-solid fa-bolt"></i> A9X BD OFFICIAL <span class="vip-badge">VIP</span>
+        </a>
+        <nav>
+            <a href="https://t.me/mdrayan69x" target="_blank">Home</a>
+            <a href="https://t.me/mdrayan69x" target="_blank">Free Hosting</a>
+            <a href="https://t.me/mdrayan69x" target="_blank">Scripts</a>
+            <a href="https://t.me/mdrayan69x" target="_blank">Support</a>
+        </nav>
+        <a href="https://t.me/mdrayan69x" target="_blank" class="btn-free">Get Free Hosting</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>100% FREE <span>HTML & SCRIPT</span> HOSTING</h1>
+        <p>Host your HTML files, Telegram Bot Scripts, and Web Projects instantly with zero cost and ultra-fast speed.</p>
+        <a href="https://t.me/mdrayan69x" target="_blank" class="btn-free" style="padding: 12px 28px; font-size: 15px;">Deploy Your Code Now</a>
+    </section>
+
+    <!-- Pricing / Free Plans -->
+    <section class="pricing-section">
+        <h2 class="section-title">VIP HOSTING PACKAGES</h2>
+        
+        <div class="hosting-grid">
+            <!-- Free Plan 1 -->
+            <div class="card">
+                <span class="free-tag">100% FREE</span>
+                <h3>Free Starter</h3>
+                <p style="color: #64748b; font-size: 13px;">Best for single page HTML sites.</p>
+                <div class="price">৳0 <span>/ lifetime</span></div>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Unlimited Bandwidth</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Free SSL Certificate</li>
+                    <li><i class="fa-solid fa-check-circle"></i> 100% Uptime Guarantee</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Instant Activation</li>
+                </ul>
+                <a href="https://t.me/mdrayan69x" target="_blank" class="card-btn">Deploy Free</a>
+            </div>
+
+            <!-- Free Plan 2 (VIP) -->
+            <div class="card featured">
+                <span class="free-tag">VIP FREE</span>
+                <h3>VIP Script Hosting</h3>
+                <p style="color: #64748b; font-size: 13px;">Ideal for Python scripts & Bot hosting.</p>
+                <div class="price">৳0 <span>/ lifetime</span></div>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Unlimited Storage</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Fast Server Execution</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Custom Subdomain Support</li>
+                    <li><i class="fa-solid fa-check-circle"></i> 24/7 VIP Telegram Support</li>
+                </ul>
+                <a href="https://t.me/mdrayan69x" target="_blank" class="card-btn" style="background: #00f2fe; color: #000;">Deploy VIP Free</a>
+            </div>
+
+            <!-- Free Plan 3 -->
+            <div class="card">
+                <span class="free-tag">100% FREE</span>
+                <h3>Developer Pro</h3>
+                <p style="color: #64748b; font-size: 13px;">For testing and deploying web apps.</p>
+                <div class="price">৳0 <span>/ lifetime</span></div>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Full Code Access</li>
+                    <li><i class="fa-solid fa-check-circle"></i> High Speed CDN</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Mobile Friendly Setup</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Community Access</li>
+                </ul>
+                <a href="https://t.me/mdrayan69x" target="_blank" class="card-btn">Deploy Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 A9X BD OFFICIAL 〖VIP〗. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
