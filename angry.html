@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANGRY MOD OFFICIAL</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* ------------------ Screen 1: Login Form ------------------ */
+        .login-card {
+            background-color: #12091c;
+            border: 2px solid #5d1c85;
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 360px;
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .login-title {
+            color: #c084fc;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .radio-option.root { color: #ef4444; }
+        .radio-option.kernel { color: #a855f7; }
+
+        .radio-option input[type="radio"] {
+            accent-color: currentColor;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .input-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid #6b21a8;
+            border-radius: 20px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+            width: 100%;
+        }
+
+        .input-box::placeholder {
+            color: #94a3b8;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #a855f7, #7e22ce);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+            align-self: flex-end;
+            width: 100px;
+        }
+
+        .login-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ------------------ Game Screen ------------------ */
+        .game-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, #2d124d 0%, #090214 100%);
+            z-index: 1;
+        }
+
+        /* ------------------ Screen 2: Floating Logo Icon ------------------ */
+        .floating-icon {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #a855f7 0%, #3b0764 100%);
+            border: 2px solid #e9d5ff;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+            cursor: pointer;
+            z-index: 100;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .floating-icon img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .floating-icon span {
+            font-size: 8px;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 4px #000;
+            line-height: 1;
+        }
+
+        /* ------------------ Screen 3: Mod Menu ------------------ */
+        .mod-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            max-height: 85vh;
+            background-color: #0d0714;
+            border: 2px solid #a855f7;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            z-index: 200;
+        }
+
+        .menu-header {
+            background-color: #a855f7;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .menu-section {
+            background-color: #4c1d95;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        /* Scrollbar styling */
+        .menu-body::-webkit-scrollbar {
+            width: 4px;
+        }
+        .menu-body::-webkit-scrollbar-thumb {
+            background: #a855f7;
+            border-radius: 4px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 0;
+        }
+
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            accent-color: #a855f7;
+            cursor: pointer;
+        }
+
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 4px 0;
+        }
+
+        .slider-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background: #4c1d95;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #a855f7;
+            cursor: pointer;
+            box-shadow: 0 0 6px #a855f7;
+        }
+
+        .menu-footer {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0d0714;
+            border-top: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .status-text {
+            font-size: 0.75rem;
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: #7e22ce;
+            color: #ffffff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Screen 1: Login -->
+    <div class="login-card" id="loginCard">
+        <div class="login-title">ANGRY MOD OFFICIAL</div>
+        
+        <div class="radio-group">
+            <label class="radio-option root">
+                <input type="radio" name="mode" value="ROOT"> ROOT
+            </label>
+            <label class="radio-option kernel">
+                <input type="radio" name="mode" value="KERNEL" checked> KERNEL
+            </label>
+        </div>
+
+        <input type="text" class="input-box" id="accessKey" placeholder="Enter your Access Key">
+
+        <button class="login-btn" onclick="handleLogin()">LOGIN</button>
+    </div>
+
+    <!-- Screen Game Background -->
+    <div class="game-screen" id="gameScreen"></div>
+
+    <!-- Screen 2: Floating Logo Icon -->
+    <div class="floating-icon" id="floatingIcon" onclick="toggleMenu()">
+        <span>ANGRY</span>
+        <img src="https://api.iconify.design/emojione-v1:angry-face.svg" alt="Logo">
+        <span>MOD</span>
+    </div>
+
+    <!-- Screen 3: Mod Menu with Panel Features -->
+    <div class="mod-menu" id="modMenu">
+        <div class="menu-header">ANGRY MOD</div>
+        
+        <div class="menu-body">
+            <!-- Main Control Section -->
+            <div class="menu-section" style="margin: 0 -15px 5px -15px;">Active Menu</div>
+            
+            <div class="menu-item">
+                <span>Enable Functions</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+            
+            <div class="menu-item">
+                <span>Bypass Antiban</span>
+                <input type="checkbox" class="checkbox-custom" checked>
+            </div>
+
+            <!-- Safe Menu Section -->
+            <div class="menu-section" style="margin: 10px -15px 5px -15px;">Safe Menu</div>
+
+            <div class="menu-item">
+                <span>Auto Headshot 100%</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+
+            <div class="menu-item">
+                <span>Aim Lock</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+
+            <div class="menu-item">
+                <span>ESP Line & Name</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Glitch Fire</span>
+                    <span id="sliderValue">0</span>
+                </div>
+                <input type="range" min="0" max="100" value="0" class="slider" id="fireSlider" oninput="updateSlider('sliderValue', this.value)">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Aim Location / FOV</span>
+                    <span id="fovValue">50</span>
+                </div>
+                <input type="range" min="0" max="360" value="50" class="slider" id="fovSlider" oninput="updateSlider('fovValue', this.value)">
+            </div>
+
+            <div class="menu-item">
+                <span>Skip Frame</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+
+            <!-- Extra Features -->
+            <div class="menu-section" style="margin: 10px -15px 5px -15px;">Extra Hacks</div>
+
+            <div class="menu-item">
+                <span>High Damage</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+
+            <div class="menu-item">
+                <span>Fast Reload</span>
+                <input type="checkbox" class="checkbox-custom">
+            </div>
+        </div>
+
+        <div class="menu-footer">
+            <span class="status-text">STATUS: ACTIVE</span>
+            <button class="close-btn" onclick="toggleMenu()">CLOSE</button>
+        </div>
+    </div>
+
+    <script>
+        // Key validation setup
+        const validKeys = {
+            'riyanvai9erw': {
+                durationDays: 1,
+                expiry: Date.now() + (1 * 24 * 60 * 60 * 1000)
+            },
+            'riyanvai93angryw': {
+                durationDays: 7,
+                expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
+            }
+        };
+
+        function handleLogin() {
+            const keyInput = document.getElementById('accessKey').value.trim();
+            const selectedMode = document.querySelector('input[name="mode"]:checked').value;
+
+            if (!keyInput) {
+                alert('Please enter an Access Key!');
+                return;
+            }
+
+            const keyData = validKeys[keyInput];
+
+            if (keyData) {
+                const currentTime = Date.now();
+                if (currentTime > keyData.expiry) {
+                    alert('পাসওয়ার্ড লিমিট শেষ ভাই, এক্সপায়ার হয়ে গেছে!');
+                    return;
+                }
+
+                alert(`Login Successful! Mode: ${selectedMode}`);
+                document.getElementById('loginCard').style.display = 'none';
+                
+                document.getElementById('gameScreen').style.display = 'block';
+                document.getElementById('floatingIcon').style.display = 'flex';
+            } else {
+                alert('Invalid Access Key!');
+            }
+        }
+
+        // Toggle Mod Menu Display
+        function toggleMenu() {
+            const menu = document.getElementById('modMenu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // Update Slider Labels
+        function updateSlider(elementId, val) {
+            document.getElementById(elementId).innerText = val;
+        }
+
+        // Make Floating Icon Draggable
+        const floatingIcon = document.getElementById('floatingIcon');
+        let isDragging = false;
+        let currentX, currentY, initialX, initialY, xOffset = 0, yOffset = 0;
+
+        floatingIcon.addEventListener('touchstart', dragStart, false);
+        floatingIcon.addEventListener('touchend', dragEnd, false);
+        floatingIcon.addEventListener('touchmove', drag, false);
+
+        floatingIcon.addEventListener('mousedown', dragStart, false);
+        floatingIcon.addEventListener('mouseup', dragEnd, false);
+        floatingIcon.addEventListener('mousemove', drag, false);
+
+        function dragStart(e) {
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+            if (e.target === floatingIcon || floatingIcon.contains(e.target)) {
+                isDragging = true;
+            }
+        }
+
+        function dragEnd() {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                if (e.type === "touchmove") {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+                xOffset = currentX;
+                yOffset = currentY;
+                setTranslate(currentX, currentY, floatingIcon);
+            }
+        }
+
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+        }
+    </script>
+</body>
+</html>
