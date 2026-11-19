@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d1c">
+<title>ARENA X — Free Fire Tournament</title>
+<style>
+:root{--bg:#090d1c;--panel:#111a30;--panel2:#17233d;--line:#263653;--text:#f4f7ff;--muted:#9aa9c5;--cyan:#32e6d0;--pink:#ff4d91;--yellow:#ffd166;--purple:#9b7bff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#34205d 0,transparent 30%),radial-gradient(circle at 0% 35%,#123c50 0,transparent 28%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:1.5px;font-size:20px}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));display:grid;place-items:center;color:#07101e;font-weight:1000;font-size:20px;box-shadow:0 8px 30px #32e6d044}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:2px;font-weight:700}.top-right{display:flex;gap:10px;align-items:center}.pill{border:1px solid var(--line);border-radius:99px;padding:9px 13px;color:var(--muted);font-size:12px;background:#111a30aa}.live{color:var(--cyan)}.hero{position:relative;overflow:hidden;border:1px solid #405075;border-radius:26px;padding:34px;background:linear-gradient(110deg,#17294aee,#291b4fee 60%,#42204fee);box-shadow:0 20px 70px #0005}.hero:after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;right:-60px;top:-140px;background:radial-gradient(circle,#32e6d055,transparent 68%)}.eyebrow{color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:2.5px}.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.02;margin:12px 0}.gradient{background:linear-gradient(90deg,var(--cyan),#fff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:#c2cce0;max-width:580px;line-height:1.7;margin-bottom:22px}.actions{display:flex;gap:11px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer;background:linear-gradient(100deg,var(--cyan),#8affdb);color:#07121f;box-shadow:0 8px 22px #32e6d033}.btn.secondary{background:#ffffff10;color:var(--text);border:1px solid #ffffff28;box-shadow:none}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0 28px}.stat,.card{background:linear-gradient(145deg,#141f37ee,#0f1729ee);border:1px solid var(--line);border-radius:18px;padding:18px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:26px;margin-top:6px}.stat em{font-style:normal;color:var(--cyan);font-size:11px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:26px 0 14px}.section-head h2{margin:0;font-size:21px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:14px}.tab{white-space:nowrap;border:1px solid var(--line);background:#111a30;color:var(--muted);padding:9px 14px;border-radius:10px;cursor:pointer}.tab.active{background:#32e6d01a;color:var(--cyan);border-color:#32e6d077}.tournaments{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tour{overflow:hidden;padding:0}.tour-banner{height:112px;padding:15px;display:flex;align-items:end;justify-content:space-between;background:linear-gradient(120deg,#145b69,#35215e 65%,#8b315e);position:relative}.tour:nth-child(2) .tour-banner{background:linear-gradient(120deg,#75314f,#39235e,#182e56)}.tour:nth-child(3) .tour-banner{background:linear-gradient(120deg,#81531e,#5b2b65,#1b3459)}.tour-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#090d1c88,transparent)}.tour-banner>*{z-index:1}.tag{font-size:10px;font-weight:900;letter-spacing:1px;padding:6px 9px;border-radius:99px;background:#07121dcc;color:var(--cyan)}.prize{text-align:right;font-weight:900;font-size:20px}.prize small{display:block;color:#d3dced;font-size:10px;font-weight:600}.tour-body{padding:17px}.tour-body h3{margin:0 0 7px;font-size:17px}.meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin:12px 0}.progress{height:7px;background:#263653;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:20px}.foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:11px;color:var(--muted)}.foot b{color:var(--text)}.grid2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.table{width:100%;border-collapse:collapse;font-size:12px}.table th{text-align:left;color:var(--muted);font-weight:600;padding:10px;border-bottom:1px solid var(--line)}.table td{padding:12px 10px;border-bottom:1px solid #26365388}.rank{color:var(--yellow);font-weight:900}.team{display:flex;align-items:center;gap:9px;font-weight:700}.avatar{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,var(--purple),var(--pink));display:grid;place-items:center;font-size:10px}.notice{color:var(--muted);font-size:12px;line-height:1.7}.form{display:grid;gap:10px}.form input,.form select{width:100%;background:#0b1325;border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--text);outline:none}.form input:focus,.form select:focus{border-color:var(--cyan)}.form label{font-size:11px;color:var(--muted)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#d8fff8;color:#07121f;padding:12px 18px;border-radius:12px;font-weight:800;box-shadow:0 10px 35px #0008;display:none;z-index:5}.footer{text-align:center;color:#71809d;font-size:11px;padding:30px 0 12px}
+@media(max-width:850px){.tournaments{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{padding:14px}.top{align-items:flex-start}.top-right .pill:first-child{display:none}.hero{padding:25px 20px}.tournaments{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:14px}.stat strong{font-size:22px}.form-row{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">A</div><div>ARENA X<small>FREE FIRE TOURNAMENT HUB</small></div></div>
+  <div class="top-right"><div class="pill"><span class="live">●</span> SEASON 08 LIVE</div><div class="pill">BD 🇧🇩</div></div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">⚡ THE NEXT BATTLE STARTS HERE</div>
+  <h1>PLAY BOLD.<br><span class="gradient">WIN BIG.</span></h1>
+  <p>টুর্নামেন্ট খুঁজুন, নিজের স্কোয়াড রেজিস্টার করুন এবং লিডারবোর্ডে নিজের জায়গা তৈরি করুন। আপনার পরের Booyah অপেক্ষা করছে!</p>
+  <div class="actions"><button class="btn" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">＋ টিম রেজিস্টার</button><button class="btn secondary" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">টুর্নামেন্ট দেখুন →</button></div>
+</section>
+
+<section class="stats">
+  <div class="stat"><span>চলমান টুর্নামেন্ট</span><strong>০৩</strong><em>● Registration open</em></div>
+  <div class="stat"><span>রেজিস্টার্ড স্কোয়াড</span><strong id="teamCount">১২৮</strong><em>↗ Community growing</em></div>
+  <div class="stat"><span>মোট প্রাইজ পুল</span><strong>৳২৫K</strong><em>★ Season rewards</em></div>
+  <div class="stat"><span>পরবর্তী ম্যাচ</span><strong>০২:১৫</strong><em>ঘণ্টা : মিনিট</em></div>
+</section>
+
+<div class="section-head" id="events"><div><h2>🔥 Featured Tournaments</h2><p>আপনার পছন্দের ম্যাচে অংশ নিন</p></div><span class="tag">ALL EVENTS</span></div>
+<div class="tabs">
+  <button class="tab active" onclick="filterTours('all',this)">সব</button>
+  <button class="tab" onclick="filterTours('solo',this)">Solo</button>
+  <button class="tab" onclick="filterTours('duo',this)">Duo</button>
+  <button class="tab" onclick="filterTours('squad',this)">Squad</button>
+</div>
+<div class="tournaments" id="tourList">
+  <article class="card tour" data-mode="squad"><div class="tour-banner"><span class="tag">SQUAD • OPEN</span><div class="prize">৳১০,০০০<small>PRIZE POOL</small></div></div><div class="tour-body"><h3>ARENA X Championship</h3><div class="meta"><span>◉ Bermuda</span><span>♟ 4 Players</span><span>◷ আজ ৯:০০ PM</span></div><div class="progress"><i style="width:72%"></i></div><div class="foot"><span><b>১৮ / ২৫</b> টিম</span><button class="btn" onclick="registerFor('ARENA X Championship')">Join Now</button></div></div></article>
+  <article class="card tour" data-mode="duo"><div class="tour-banner"><span class="tag">DUO • OPEN</span><div class="prize">৳৫,০০০<small>PRIZE POOL</small></div></div><div class="tour-body"><h3>Night Warriors Cup</h3><div class="meta"><span>◉ Kalahari</span><span>♟ 2 Players</span><span>◷ কাল ৮:৩০ PM</span></div><div class="progress"><i style="width:48%"></i></div><div class="foot"><span><b>১২ / ২৫</b> টিম</span><button class="btn" onclick="registerFor('Night Warriors Cup')">Join Now</button></div></div></article>
+  <article class="card tour" data-mode="solo"><div class="tour-banner"><span class="tag">SOLO • OPEN</span><div class="prize">৳২,০০০<small>PRIZE POOL</small></div></div><div class="tour-body"><h3>Clutch Master Solo</h3><div class="meta"><span>◉ Alpine</span><span>♟ 1 Player</span><span>◷ ২১ Nov, ৭ PM</span></div><div class="progress"><i style="width:86%"></i></div><div class="foot"><span><b>৪৩ / ৫০</b> প্লেয়ার</span><button class="btn" onclick="registerFor('Clutch Master Solo')">Join Now</button></div></div></article>
+</div>
+
+<div class="section-head"><div><h2>🏆 Top Teams</h2><p>এই সপ্তাহের সেরা স্কোয়াড</p></div></div>
+<div class="grid2">
+  <div class="card">
+    <table class="table"><thead><tr><th>RANK</th><th>TEAM</th><th>POINTS</th><th>WINS</th></tr></thead><tbody>
+      <tr><td class="rank">#01</td><td><div class="team"><span class="avatar">RX</span> RED X</div></td><td>২৮৫০</td><td>১২</td></tr>
+      <tr><td class="rank">#02</td><td><div class="team"><span class="avatar">NX</span> NOVA X</div></td><td>২৬৪০</td><td>১০</td></tr>
+      <tr><td class="rank">#03</td><td><div class="team"><span class="avatar">AE</span> AGUN ESPORTS</div></td><td>২৪৯০</td><td>৯</td></tr>
+      <tr><td>#04</td><td><div class="team"><span class="avatar">DH</span> DARK HUNTERS</div></td><td>২২১০</td><td>৮</td></tr>
+    </tbody></table>
+  </div>
+  <div class="card" id="register">
+    <h3 style="margin:0 0 5px">🚀 Quick Team Registration</h3><p class="notice">আপনার টিমের তথ্য দিন। ডেমো হিসেবে তথ্য এই ব্রাউজারেই দেখানো হবে; সার্ভারে জমা হবে না।</p>
+    <form class="form" onsubmit="submitTeam(event)">
+      <div><label>টিমের নাম</label><input id="teamName" required maxlength="28" placeholder="যেমন: ARIYAN ESPORTS"></div>
+      <div class="form-row"><div><label>ক্যাপ্টেনের নাম</label><input id="captain" required placeholder="Captain name"></div><div><label>প্লেয়ার সংখ্যা</label><select id="players"><option>1</option><option>2</option><option selected>4</option></select></div></div>
+      <div><label>Free Fire UID</label><input id="uid" required inputmode="numeric" placeholder="আপনার Player UID"></div>
+      <button class="btn" type="submit">রেজিস্ট্রেশন জমা দিন →</button>
+    </form>
+  </div>
+</div>
+<div class="footer">ARENA X TOURNAMENT HUB • Fan-made demo interface • Not affiliated with Garena</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',2800)}
+function filterTours(mode,btn){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.tour').forEach(card=>card.style.display=(mode==='all'||card.dataset.mode===mode)?'':'none')}
+function registerFor(name){document.getElementById('register').scrollIntoView({behavior:'smooth'});toast(name+' — রেজিস্ট্রেশন ফর্ম পূরণ করুন')}
+function submitTeam(e){e.preventDefault();const name=document.getElementById('teamName').value.trim();const captain=document.getElementById('captain').value.trim();const uid=document.getElementById('uid').value.trim();const players=document.getElementById('players').value;if(!name||!captain||!uid){toast('সব তথ্য পূরণ করুন');return}toast('ধন্যবাদ, '+name+'! ডেমো রেজিস্ট্রেশন সম্পন্ন হয়েছে।');document.getElementById('teamCount').textContent=Number(document.getElementById('teamCount').textContent)+1;e.target.reset()}
+</script>
+</body>
+</html>
