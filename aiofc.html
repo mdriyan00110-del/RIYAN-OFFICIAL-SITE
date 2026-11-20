@@ -1,0 +1,615 @@
+```html
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RIYAN A9X BD AI BOT - Fast RGB Auto-Reply</title>
+    <!-- Page Favicon using Custom Logo -->
+    <title>RIYAN A9X BD AI BOT - Full RGB Auto-Reply</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Hind Siliguri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Marked.js for Fast Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Hind Siliguri', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* =========================================================
+           60FPS GPU-ACCELERATED MULTI-ZONE NON-STOP RGB SYSTEM
+           (Uses hardware hue-rotate & border-color for 0 lag)
+        ========================================================= */
+        @keyframes rgbHueCycle {
+            0%   { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        @keyframes rgbBorderPulse {
+            0%   { border-color: #ff0044; box-shadow: 0 0 12px rgba(255, 0, 68, 0.55), inset 0 0 8px rgba(255, 0, 68, 0.25); }
+            20%  { border-color: #ff9900; box-shadow: 0 0 12px rgba(255, 153, 0, 0.55), inset 0 0 8px rgba(255, 153, 0, 0.25); }
+            40%  { border-color: #00ff66; box-shadow: 0 0 12px rgba(0, 255, 102, 0.55), inset 0 0 8px rgba(0, 255, 102, 0.25); }
+            60%  { border-color: #00e5ff; box-shadow: 0 0 12px rgba(0, 229, 255, 0.55), inset 0 0 8px rgba(0, 229, 255, 0.25); }
+            80%  { border-color: #aa00ff; box-shadow: 0 0 12px rgba(170, 0, 255, 0.55), inset 0 0 8px rgba(170, 0, 255, 0.25); }
+            100% { border-color: #ff0044; box-shadow: 0 0 12px rgba(255, 0, 68, 0.55), inset 0 0 8px rgba(255, 0, 68, 0.25); }
+        }
+
+        @keyframes rgbGradientSlide {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rgbRingSpin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #05050a;
+            color: #f3f4f6;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        /* Multi-Zone Continuous RGB Glow Borders */
+        .rgb-zone-box {
+            border: 2px solid #ff0044;
+            animation: rgbBorderPulse 3s linear infinite;
+            will-change: border-color, box-shadow;
+        }
+
+        .rgb-card-glow {
+            border: 1.5px solid #ff0044;
+            animation: rgbBorderPulse 3.5s linear infinite;
+            will-change: border-color, box-shadow;
+        }
+
+        /* Full-Width Flowing Rainbow Light Bars */
+        .rgb-light-strip {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, #ff0040, #ff7b00, #ffe600, #00ff66, #00e5ff, #3b5bff, #c800ff, #ff0040);
+            background-size: 300% 100%;
+            animation: rgbGradientSlide 2s linear infinite;
+            will-change: background-position;
+        }
+
+        /* Flowing Rainbow Gradient Text */
+        .rgb-rainbow-text {
+            background: linear-gradient(90deg, #ff0055, #ff9900, #ffee00, #00ff88, #00e5ff, #c400ff, #ff0055);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbGradientSlide 2.2s linear infinite;
+            will-change: background-position;
+        }
+
+        /* Flowing Rainbow Button */
+        .rgb-rainbow-btn {
+            background: linear-gradient(90deg, #ff0055, #ff7b00, #00e676, #00b0ff, #aa00ff, #ff0055);
+            background-size: 300% 100%;
+            animation: rgbGradientSlide 2s linear infinite;
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+            will-change: background-position;
+        }
+
+        /* Ambient Color-Shifting Background Aura (GPU hue-rotate = 0 lag) */
+        .rgb-ambient-bg {
+            background: radial-gradient(circle at 20% 20%, rgba(255, 0, 85, 0.16), transparent 45%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 229, 255, 0.16), transparent 45%);
+            animation: rgbHueCycle 4s linear infinite;
+            will-change: filter;
+        }
+
+        /* Rotating RGB Ring Around Custom Logo */
+        .logo-rgb-ring {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 2.5px;
+            overflow: hidden;
+            box-shadow: 0 0 14px rgba(255, 0, 68, 0.65);
+            animation: rgbHueCycle 3s linear infinite;
+        }
+        .logo-rgb-ring::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(#ff0040, #ff8800, #ffee00, #00ff66, #00e5ff, #3355ff, #cc00ff, #ff0040);
+            animation: rgbRingSpin 1.8s linear infinite;
+            will-change: transform;
+            z-index: 0;
+        }
+        .logo-rgb-ring img {
+            position: relative;
+            z-index: 1;
+            border-radius: 9999px;
+            object-fit: cover;
+            background-color: #090912;
+        }
+/* ... existing code ... -->
+</head>
+<body class="h-[100dvh] w-screen flex items-center justify-center p-1.5 sm:p-3">
+
+    <!-- Hidden File Input to Pick Local Logo Image (1000063056.png) Anytime -->
+    <input type="file" id="logoFileInput" accept="image/*" class="hidden">
+
+    <!-- Main Full-Screen Multi-Zone RGB Container -->
+    <div class="rgb-zone-box bg-[#080810] w-full max-w-4xl h-full rounded-2xl flex flex-col overflow-hidden relative">
+        
+        <!-- Continuous RGB Ambient Color Aura -->
+        <div class="rgb-ambient-bg absolute inset-0 pointer-events-none z-0"></div>
+
+        <!-- Top Continuous RGB Light Strip -->
+        <div class="rgb-light-strip shrink-0 relative z-30"></div>
+
+        <!-- Top Header with Custom Logo & Working Support Care (Telegram + WhatsApp) -->
+        <header class="px-3 sm:px-5 py-2.5 border-b border-white/15 bg-[#0e0e1a]/95 flex flex-wrap items-center justify-between gap-2 shrink-0 relative z-30">
+            
+            <!-- Left: Custom Logo (Tap to Change Image) + Brand Name -->
+            <div class="flex items-center gap-2.5">
+                <button
+                    type="button"
+                    onclick="document.getElementById('logoFileInput').click()"
+                    title="লোগো পরিবর্তন করতে ক্লিক করুন (Select 1000063056.png)"
+                    class="logo-rgb-ring w-11 h-11 shrink-0 cursor-pointer active:scale-95"
+                >
+                    <img
+                        src="1000063056.png"
+                        data-brand-logo="true"
+                        alt="RIYAN A9X BD AI BOT"
+                        class="w-full h-full"
+                    >
+                </button>
+                <div>
+                    <div class="flex items-center gap-1.5">
+                        <h1 class="font-extrabold text-sm sm:text-base tracking-wide rgb-rainbow-text">
+                            RIYAN A9X BD
+                        </h1>
+                        <span class="rgb-card-glow inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-black/60 text-cyan-300">
+                            <i class="fa-solid fa-bolt text-[9px] text-amber-400"></i> 1s RGB AI
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-gray-300 leading-tight">AI Auto-Reply Bot • Zero Lag</p>
+                </div>
+            </div>
+
+            <!-- Right: RGB Support Care (Telegram & WhatsApp Direct Buttons) + Tools -->
+            <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap relative z-30">
+                
+                <!-- RGB Glowing Support Care Box -->
+                <div class="rgb-card-glow flex items-center gap-1.5 bg-[#121222] px-2.5 py-1 rounded-xl">
+                    <span class="text-[11px] font-extrabold rgb-rainbow-text hidden md:inline mr-0.5">
+                        <i class="fa-solid fa-headset text-pink-400 mr-1"></i>Support Care:
+                    </span>
+
+                    <!-- Telegram Button (https://t.me/riyana9xai) -->
+                    <a
+                        href="https://t.me/riyana9xai"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="openSupportLink(event, 'https://t.me/riyana9xai', 'Telegram (@riyana9xai)')"
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold text-white bg-sky-600 hover:bg-sky-500 active:scale-95 transition-transform cursor-pointer select-none shadow-[0_0_10px_rgba(2,132,199,0.6)]"
+                    >
+                        <i class="fa-brands fa-telegram text-sm"></i>
+                        <span>Telegram</span>
+                    </a>
+
+                    <!-- WhatsApp Button (01760812499 -> https://wa.me/8801760812499) -->
+                    <a
+                        href="https://wa.me/8801760812499"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onclick="openSupportLink(event, 'https://wa.me/8801760812499', 'WhatsApp (01760812499)')"
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:scale-95 transition-transform cursor-pointer select-none shadow-[0_0_10px_rgba(5,150,105,0.6)]"
+                    >
+                        <i class="fa-brands fa-whatsapp text-sm"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Upload Logo Button -->
+                <button
+                    type="button"
+                    onclick="document.getElementById('logoFileInput').click()"
+                    title="Upload Your Logo Image"
+                    class="rgb-card-glow w-8 h-8 rounded-lg bg-[#141426] hover:bg-white/15 text-cyan-300 flex items-center justify-center active:scale-95 cursor-pointer"
+                >
+                    <i class="fa-solid fa-image text-xs"></i>
+                </button>
+
+                <!-- API Key Settings Button -->
+                <button
+                    type="button"
+                    id="apiKeyBtn"
+                    title="API Key Settings"
+                    class="rgb-card-glow w-8 h-8 rounded-lg bg-[#141426] hover:bg-white/15 text-amber-400 flex items-center justify-center active:scale-95 cursor-pointer"
+                >
+                    <i class="fa-solid fa-key text-xs"></i>
+                </button>
+
+                <!-- Clear Chat Button -->
+                <button
+                    type="button"
+                    id="clearChatBtn"
+                    title="Clear Chat"
+                    class="rgb-card-glow w-8 h-8 rounded-lg bg-[#141426] hover:bg-white/15 text-rose-400 flex items-center justify-center active:scale-95 cursor-pointer"
+                >
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mid Header RGB Light Strip -->
+        <div class="rgb-light-strip shrink-0 relative z-20" style="height: 2px;"></div>
+
+        <!-- Subtle Background Watermark Logo -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+            <img
+                src="1000063056.png"
+                data-brand-logo="true"
+                alt=""
+                class="w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover opacity-[0.09]"
+            >
+        </div>
+
+        <!-- Main Chat Scroll Area -->
+        <main id="chatContainer" class="flex-1 overflow-y-auto px-3 sm:px-6 py-4 space-y-3.5 relative z-10" style="-webkit-overflow-scrolling: touch;">
+            
+            <!-- Welcome Screen with Custom Logo Centerpiece -->
+            <div id="welcomeBox" class="py-3 flex flex-col items-center text-center">
+                <div
+                    onclick="document.getElementById('logoFileInput').click()"
+                    title="লোগো পরিবর্তন করতে ক্লিক করুন"
+                    class="logo-rgb-ring w-24 h-24 sm:w-28 sm:h-28 mb-3 cursor-pointer active:scale-95"
+                >
+                    <img
+                        src="1000063056.png"
+                        data-brand-logo="true"
+                        alt="RIYAN A9X BD AI BOT Logo"
+                        class="w-full h-full"
+                    >
+                </div>
+
+                <h2 class="text-xl sm:text-3xl font-extrabold rgb-rainbow-text mb-1">
+                    RIYAN A9X BD AI BOT
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-200 max-w-md mb-4 leading-relaxed">
+                    যেকোনো প্রশ্ন করুন—মাত্র <b>১ থেকে ২ সেকেন্ডে</b> স্মুথলি উত্তর পাবেন। সাপোর্টের জন্য উপরের <span class="text-sky-400 font-bold">Telegram</span> বা <span class="text-emerald-400 font-bold">WhatsApp</span> বাটনে ক্লিক করুন।
+                </p>
+
+                <!-- RGB Glowing Quick Tap Prompts -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-2xl">
+                    <button type="button" onclick="sendQuickPrompt('হ্যালো! তুমি কেমন আছো এবং কী কী করতে পারো?')" class="rgb-card-glow p-3 rounded-xl bg-[#11111e]/90 hover:bg-[#19192e] text-left text-xs sm:text-sm text-gray-100 flex items-center justify-between gap-2 active:scale-[0.99] cursor-pointer">
+                        <span>হ্যালো! তুমি কী কী করতে পারো?</span>
+                        <i class="fa-solid fa-bolt text-cyan-400"></i>
+                    </button>
+                    <button type="button" onclick="sendQuickPrompt('একটি মজার বাংলা জোকস বলো তো!')" class="rgb-card-glow p-3 rounded-xl bg-[#11111e]/90 hover:bg-[#19192e] text-left text-xs sm:text-sm text-gray-100 flex items-center justify-between gap-2 active:scale-[0.99] cursor-pointer">
+                        <span>একটি মজার বাংলা জোকস বলো!</span>
+                        <i class="fa-solid fa-face-laugh-beam text-pink-400"></i>
+                    </button>
+                    <button type="button" onclick="sendQuickPrompt('Free Fire গেমের জন্য সেরা একটি স্টাইলিশ নাম সাজেশন দাও।')" class="rgb-card-glow p-3 rounded-xl bg-[#11111e]/90 hover:bg-[#19192e] text-left text-xs sm:text-sm text-gray-100 flex items-center justify-between gap-2 active:scale-[0.99] cursor-pointer">
+                        <span>Free Fire সেরা স্টাইলিশ নাম দাও</span>
+                        <i class="fa-solid fa-fire text-amber-400"></i>
+                    </button>
+                    <button type="button" onclick="sendQuickPrompt('অনলাইনে ইনকাম করার সেরা ৩টি উপায় সংক্ষেপে বলো।')" class="rgb-card-glow p-3 rounded-xl bg-[#11111e]/90 hover:bg-[#19192e] text-left text-xs sm:text-sm text-gray-100 flex items-center justify-between gap-2 active:scale-[0.99] cursor-pointer">
+                        <span>অনলাইনে ইনকাম করার সেরা ৩টি উপায়</span>
+                        <i class="fa-solid fa-sack-dollar text-emerald-400"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Messages Container -->
+            <div id="messagesList" class="space-y-3.5"></div>
+
+        </main>
+
+        <!-- Above Footer RGB Light Strip -->
+        <div class="rgb-light-strip shrink-0 relative z-20" style="height: 2px;"></div>
+
+        <!-- Bottom Zero-Lag RGB Input Bar -->
+        <footer class="p-2.5 sm:p-3.5 bg-[#0e0e1a]/95 shrink-0 relative z-20">
+            <form id="chatForm" class="rgb-zone-box bg-[#141424] rounded-xl px-3 py-1.5 flex items-end gap-2">
+                <textarea
+                    id="userInput"
+                    rows="1"
+                    placeholder="এখানে লিখুন... (১-২ সেকেন্ডে সুপার-ফাস্ট উত্তর)"
+                    class="w-full bg-transparent text-white placeholder-gray-400 text-sm sm:text-base resize-none focus:outline-none max-h-28 py-1.5 leading-snug"
+                ></textarea>
+
+                <button
+                    type="submit"
+                    id="sendBtn"
+                    disabled
+                    class="rgb-rainbow-btn w-10 h-10 rounded-lg flex items-center justify-center shrink-0 text-white font-bold disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 cursor-pointer"
+                >
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+            </form>
+        </footer>
+
+        <!-- Bottom Continuous RGB Light Strip -->
+        <div class="rgb-light-strip shrink-0 relative z-30"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 bg-[#141424] text-white text-xs font-semibold px-4 py-2 rounded-full rgb-zone-box opacity-0 pointer-events-none transition-opacity duration-150 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+        <span id="toastText">Copied!</span>
+    </div>
+
+    <!-- Custom API Key Modal -->
+    <div id="apiKeyModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4 z-50">
+        <div class="rgb-zone-box bg-[#10101c] rounded-2xl max-w-md w-full p-5 text-white">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <div class="logo-rgb-ring w-7 h-7">
+                        <img src="1000063056.png" data-brand-logo="true" alt="Logo" class="w-full h-full">
+                    </div>
+                    <h3 class="font-bold text-base rgb-rainbow-text">Gemini API Key Settings</h3>
+                </div>
+                <button type="button" id="closeModalBtn" class="text-gray-400 hover:text-white p-1 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-300 mb-3 leading-relaxed">
+                এই ফাইলটি প্রিভিউতে অটোমেটিক কাজ করে। তবে আপনি ফাইলটি ডাউনলোড করে নিজের ব্রাউজারে আলাদাভাবে চালালে নিচে আপনার <b>Google Gemini API Key</b> দিয়ে সেভ করুন:
+            </p>
+            <input
+                type="password"
+                id="apiKeyInput"
+                placeholder="AIzaSy..."
+                class="w-full px-3.5 py-2.5 rounded-xl bg-[#090912] border border-white/20 text-sm text-white focus:outline-none focus:border-cyan-400 mb-4"
+            />
+            <div class="flex justify-end gap-2">
+                <button type="button" id="removeKeyBtn" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-400 hover:bg-rose-500/15 cursor-pointer">
+                    Remove
+                </button>
+                <button type="button" id="saveKeyBtn" class="rgb-rainbow-btn px-4 py-2 rounded-xl text-xs font-bold text-white cursor-pointer">
+                    Save Key
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================
+        // 1. BUILT-IN RIYAN A9X BD AI BOT CREST + CUSTOM LOGO LOADER
+        // =========================================================
+        const BUILTIN_RIYAN_LOGO = "data:image/svg+xml;utf8," + encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                <defs>
+                    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#3a000d"/>
+                        <stop offset="70%" stop-color="#140005"/>
+                        <stop offset="100%" stop-color="#050508"/>
+                    </radialGradient>
+                    <linearGradient id="neonRed" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff1e56"/>
+                        <stop offset="50%" stop-color="#ff0033"/>
+                        <stop offset="100%" stop-color="#b3001b"/>
+                    </linearGradient>
+                    <linearGradient id="goldCrown" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffe600"/>
+                        <stop offset="100%" stop-color="#ff8800"/>
+                    </linearGradient>
+                </defs>
+                <circle cx="150" cy="150" r="144" fill="url(#bg)" stroke="url(#neonRed)" stroke-width="8"/>
+                <circle cx="150" cy="150" r="130" fill="none" stroke="#ff2a55" stroke-width="2" stroke-dasharray="14 8"/>
+                <!-- Crown -->
+                <polygon points="118,62 132,38 150,55 168,38 182,62" fill="url(#goldCrown)" stroke="#000" stroke-width="2"/>
+                <!-- Cyber Hood & Mask -->
+                <path d="M92,165 C92,100 120,76 150,76 C180,76 208,100 208,165 Z" fill="#181822" stroke="#ff0033" stroke-width="4"/>
+                <circle cx="132" cy="116" r="6" fill="#ff1e56"/>
+                <circle cx="168" cy="116" r="6" fill="#ff1e56"/>
+                <polygon points="114,126 186,126 176,162 150,172 124,162" fill="#0d0d12" stroke="#ff0033" stroke-width="3"/>
+                <path d="M138,142 L150,134 L162,142 L150,154 Z" fill="#ff0033"/>
+                <!-- AI Robot Badge -->
+                <rect x="210" y="102" width="46" height="36" rx="10" fill="#111522" stroke="#00e5ff" stroke-width="3"/>
+                <circle cx="224" cy="120" r="4" fill="#ff0033"/>
+                <circle cx="242" cy="120" r="4" fill="#ff0033"/>
+                <!-- Banner -->
+                <rect x="26" y="176" width="248" height="44" rx="10" fill="#0a0a0f" stroke="#ff0033" stroke-width="4"/>
+                <text x="150" y="206" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="27" fill="#ffffff" letter-spacing="1.5">RIYAN A9X BD</text>
+                <rect x="68" y="226" width="164" height="32" rx="8" fill="#ff0033"/>
+                <text x="150" y="248" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="20" fill="#ffffff" letter-spacing="2">AI BOT</text>
+            </svg>
+        `);
+
+        let activeLogoSrc = localStorage.getItem('riyan_custom_logo_data') || "1000063056.png";
+
+        function applyBrandLogo(src) {
+            activeLogoSrc = src;
+            document.querySelectorAll('img[data-brand-logo="true"]').forEach(img => {
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = BUILTIN_RIYAN_LOGO;
+                    activeLogoSrc = BUILTIN_RIYAN_LOGO;
+                };
+                img.src = src;
+            });
+        }
+
+        // Apply logo immediately on load
+        window.addEventListener('DOMContentLoaded', () => applyBrandLogo(activeLogoSrc));
+
+        // Allow user to pick their 1000063056.png image anytime
+        document.getElementById('logoFileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                const dataUrl = ev.target.result;
+                try {
+                    localStorage.setItem('riyan_custom_logo_data', dataUrl);
+                } catch (err) {}
+                applyBrandLogo(dataUrl);
+                showToast('নতুন লোগো সব জায়গায় সেট হয়েছে!');
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // =========================================================
+        // 2. ULTRA-FAST AI CONFIGURATION (1-2 SECOND RESPONSE)
+        // =========================================================
+        const apiKey = ""; // Runtime key automatically injected
+        let savedUserKey = localStorage.getItem('riyan_rgb_bot_key') || "";
+        let chatHistory = [];
+        let isBusy = false;
+
+        const FAST_SYSTEM_PROMPT = `You are RIYAN A9X BD AI BOT, an ultra-fast, smart, friendly AI assistant. 
+Reply directly, accurately, and concisely in Bengali (বাংলা), English, or Banglish matching the user's language. 
+Keep responses crisp, helpful, and fast.`;
+// ... existing code ... -->
+        // =========================================================
+        // 5. RENDER MESSAGES WITH RGB LIGHTING & CUSTOM LOGO AVATAR
+        // =========================================================
+        function renderUserMsg(text) {
+            welcomeBox.classList.add('hidden');
+            const div = document.createElement('div');
+            div.className = 'flex justify-end';
+            div.innerHTML = `
+                <div class="rgb-card-glow max-w-[85%] sm:max-w-[75%] bg-[#16192c] text-white px-3.5 py-2.5 rounded-2xl rounded-br-sm text-sm sm:text-base whitespace-pre-wrap"></div>
+            `;
+            div.firstElementChild.textContent = text;
+            messagesList.appendChild(div);
+            scrollBottom();
+        }
+
+        function showFastTyping() {
+            const div = document.createElement('div');
+            div.id = 'fastTyping';
+            div.className = 'flex items-center gap-2.5';
+            div.innerHTML = `
+                <div class="logo-rgb-ring w-9 h-9 shrink-0">
+                    <img src="${activeLogoSrc}" data-brand-logo="true" alt="AI" class="w-full h-full" onerror="this.onerror=null;this.src=BUILTIN_RIYAN_LOGO;">
+                </div>
+                <div class="rgb-card-glow px-3.5 py-2.5 rounded-2xl bg-[#121222] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-pink-500 fast-dot"></span>
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 fast-dot"></span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 fast-dot"></span>
+                </div>
+            `;
+            messagesList.appendChild(div);
+            scrollBottom();
+        }
+
+        function hideFastTyping() {
+            const el = document.getElementById('fastTyping');
+            if (el) el.remove();
+        }
+
+        function renderBotMsg(replyText, responseTimeSec, isError = false) {
+            const div = document.createElement('div');
+            div.className = 'flex items-start gap-2.5';
+
+            // Custom Logo Avatar with RGB Ring on Every AI Reply
+            const avatar = document.createElement('div');
+            avatar.className = 'logo-rgb-ring w-9 h-9 shrink-0 mt-0.5';
+            avatar.innerHTML = `<img src="${activeLogoSrc}" data-brand-logo="true" alt="RIYAN AI" class="w-full h-full" onerror="this.onerror=null;this.src=BUILTIN_RIYAN_LOGO;">`;
+
+            const bubble = document.createElement('div');
+            if (isError) {
+                bubble.className = 'flex-1 bg-rose-500/15 border border-rose-500/50 text-rose-300 px-3.5 py-2.5 rounded-2xl text-xs sm:text-sm';
+                bubble.textContent = replyText;
+            } else {
+                bubble.className = 'rgb-card-glow flex-1 bg-[#111120] px-3.5 py-2.5 rounded-2xl rounded-tl-sm text-sm sm:text-base text-gray-100';
+                
+                const content = document.createElement('div');
+                content.className = 'markdown-body';
+                content.innerHTML = marked.parse(replyText);
+
+                const footerBar = document.createElement('div');
+                footerBar.className = 'mt-2 pt-1.5 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400';
+                footerBar.innerHTML = `
+                    <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-bolt mr-1"></i>${responseTimeSec}s</span>
+                `;
+
+                const copyBtn = document.createElement('button');
+                copyBtn.type = 'button';
+                copyBtn.className = 'hover:text-cyan-400 flex items-center gap-1 cursor-pointer';
+                copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+                copyBtn.onclick = () => copyText(replyText);
+
+                footerBar.appendChild(copyBtn);
+                bubble.appendChild(content);
+                bubble.appendChild(footerBar);
+            }
+
+            div.appendChild(avatar);
+            div.appendChild(bubble);
+            messagesList.appendChild(div);
+            scrollBottom();
+        }
+
+        // =========================================================
+        // 6. SUBMIT HANDLER
+        // =========================================================
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = userInput.value.trim();
+            if (!text || isBusy) return;
+
+            userInput.value = '';
+            userInput.style.height = 'auto';
+            isBusy = true;
+            sendBtn.disabled = true;
+
+            renderUserMsg(text);
+            chatHistory.push({ role: 'user', parts: [{ text }] });
+
+            if (chatHistory.length > 8) {
+                chatHistory = chatHistory.slice(chatHistory.length - 8);
+            }
+
+            const startTime = performance.now();
+            showFastTyping();
+
+            try {
+                const reply = await getFastAIReply(chatHistory);
+                const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+                hideFastTyping();
+                renderBotMsg(reply, elapsed, false);
+                chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+            } catch (err) {
+                hideFastTyping();
+                chatHistory.pop();
+                renderBotMsg(
+                    `উত্তর দিতে সমস্যা হয়েছে (${err.message})। আপনি ফাইলটি ডাউনলোড করে আলাদাভাবে চালালে উপরের চাবি (Key) বাটনে আপনার Gemini API Key সেট করে নিন।`,
+                    0,
+                    true
+                );
+            } finally {
+                isBusy = false;
+                sendBtn.disabled = userInput.value.trim().length === 0;
+                userInput.focus();
+            }
+        });
+    </script>
+</body>
+</html>
+```
